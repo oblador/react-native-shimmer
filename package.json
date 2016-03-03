@@ -1,0 +1,36 @@
+{
+  "name": "react-native-shimmer",
+  "version": "0.0.0",
+  "description": "Simple shimmering effect for any view in React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "ios",
+    "ui",
+    "shimmer",
+    "activityindicator",
+    "indeterminate",
+    "spinner",
+    "animation"
+  ],
+  "author": {
+    "name": "Joel Arvidsson",
+    "email": "joel@oblador.se"
+  },
+  "homepage": "https://github.com/oblador/react-native-shimmer",
+  "bugs": {
+    "url": "https://github.com/oblador/react-native-shimmer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oblador/react-native-shimmer.git"
+  },
+  "license": "MIT"
+}
