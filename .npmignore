@@ -1,0 +1,14 @@
+# Logs
+*.log
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+Example
+ios/Shimmer/Examples
+ios/Shimmer/FBShimmering.xcworkspace
+ios/Shimmer/shimmer.gif
+ios/Shimmer/Shimmer.podspec
+ios/Shimmer/CONTRIBUTING.md
+xcuserdata
