@@ -26,7 +26,7 @@ pod 'react-native-shimmer', :path => 'node_modules/react-native-shimmer'
 
 ## Usage
 
-NOTE: `Shimmer` may only have one child, wrap in a `View` if you need multiple.
+NOTE: `Shimmer` may only have one child.
 
 ```js
 import Shimmer from 'react-native-shimmer';
