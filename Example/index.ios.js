@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function ExampleView(props) {
+export default function Example(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Shimmer Example</Text>
@@ -45,11 +45,11 @@ export default function ExampleView(props) {
         <Text style={styles.loadingText}>Loading...</Text>
       </Shimmer>
       <Shimmer direction="down">
-        <Image source={{ uri: 'http://red-badger.com/blog/wp-content/uploads/2015/04/react-logo-1000-transparent.png' }} style={styles.reactLogo} />
+        <Image source={{ uri: 'https://arcweb.co/wp-content/uploads/2016/10/react-logo-1000-transparent.png' }} style={styles.reactLogo} />
       </Shimmer>
       </View>
     </View>
   );
 }
 
-AppRegistry.registerComponent('Example', () => ExampleView);
+AppRegistry.registerComponent('Example', () => Example);
