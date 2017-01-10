@@ -12,3 +12,7 @@ ios/Shimmer/shimmer.gif
 ios/Shimmer/Shimmer.podspec
 ios/Shimmer/CONTRIBUTING.md
 xcuserdata
+
+.editorconfig
+.gitmodules
+.eslintrc
