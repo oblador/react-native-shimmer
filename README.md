@@ -1,16 +1,16 @@
 # react-native-shimmer
 
-Simple shimmering effect for any view in React Native. Based on [Shimmer](https://github.com/facebook/Shimmer).
+Simple shimmering effect in React Native. Based on [Shimmer](https://github.com/facebook/Shimmer).
 
 ![Shimmer](https://github.com/facebook/Shimmer/blob/master/shimmer.gif?raw=true)
 
 ## Installation
 
-`$ npm install react-native-shimmer --save`
+`$ yarn add react-native-shimmer`
 
-### Option: With [`rnpm`](https://github.com/rnpm/rnpm)
+### Option: With `react-native link`
 
-`$ rnpm link`
+`$ react-native link react-native-shimmer`
 
 ### Option: Manually
 
@@ -26,7 +26,7 @@ pod 'react-native-shimmer', :path => 'node_modules/react-native-shimmer'
 
 ## Usage
 
-NOTE: `Shimmer` may only have one child.
+NOTE: `Shimmer` may only have one child and currently doesn't work with `View`.
 
 ```js
 import Shimmer from 'react-native-shimmer';
@@ -52,4 +52,4 @@ import Shimmer from 'react-native-shimmer';
 
 ## License
 
-[MIT License](http://opensource.org/licenses/mit-license.html). Shimmer is under BSD license. © Joel Arvidsson 2016
+[MIT License](http://opensource.org/licenses/mit-license.html). Shimmer is under BSD license. © Joel Arvidsson 2016-now
