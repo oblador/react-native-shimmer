@@ -1,7 +1,7 @@
 {
   "name": "react-native-shimmer",
-  "version": "0.2.0",
-  "description": "Simple shimmering effect for any view in React Native",
+  "version": "0.2.1",
+  "description": "Simple shimmering effect in React Native",
   "main": "index.js",
   "scripts": {
     "test": "eslint index.js"
