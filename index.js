@@ -25,8 +25,13 @@ export default class Shimmer extends Component {
   };
 
   render() {
-    return (<RNShimmeringView {...this.props} />);
+    const { direction, ...props } = this.props;
+    return (<RNShimmeringView shimmeringDirection={direction} {...props} />);
   }
 }
 
-const RNShimmeringView = requireNativeComponent('RNShimmeringView', Shimmer);
+const RNShimmeringView = requireNativeComponent('RNShimmeringView', Shimmer, {
+  nativeOnly: {
+    shimmeringDirection: true,
+  },
+});

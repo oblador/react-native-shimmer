@@ -13,7 +13,7 @@
 
 - (void)insertReactSubview:(UIView *)subview atIndex:(NSInteger)atIndex
 {
-  RCTAssert(self.contentView == nil, @"VOGShimmeringView may only contain a single subview");
+  RCTAssert(self.contentView == nil, @"RNShimmeringView may only contain a single subview");
   self.contentView = subview;
 }
 
