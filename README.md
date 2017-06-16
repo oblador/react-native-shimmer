@@ -91,7 +91,7 @@ import Shimmer from 'react-native-shimmer';
 ### Properties
 
 | Prop | Description | Default |
-|---|---|---|---|---|
+|------|-------------|---------|
 |**`animating`**|Whether or not to show shimmering effect. |`true`|
 |**`direction`**|The direction of shimmering animation, valid values are `up`, `down`, `left`, `right`. |`right`|
 |**`duration`**|The shimmering animation duration in milliseconds.|`1000`|
