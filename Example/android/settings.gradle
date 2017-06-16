@@ -1,3 +1,5 @@
 rootProject.name = 'Example'
+include ':react-native-shimmer'
+project(':react-native-shimmer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-shimmer/android')
 
 include ':app'
