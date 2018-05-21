@@ -2,13 +2,18 @@ package com.oblador.shimmer;
 
 import android.content.Context;
 import android.util.AttributeSet;
+
+import com.facebook.shimmer.Shimmer;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 
 public class RNShimmeringView extends ShimmerFrameLayout {
+    Shimmer.Builder shimmerBuilder;
 
-    public RNShimmeringView(Context context) {
+    public RNShimmeringView(Context context, Shimmer.Builder shimmerBuilder) {
         super(context);
+        this.shimmerBuilder = shimmerBuilder;
+        this.setShimmer(this.shimmerBuilder.build());
     }
 
     public RNShimmeringView(Context context, AttributeSet attrs) {
@@ -19,37 +24,12 @@ public class RNShimmeringView extends ShimmerFrameLayout {
         super(context, attrs, defStyle);
     }
 
-    private float mSpeed = 0.0f; // The speed of shimmering, in points per second.
-
-    public float getSpeed() {
-        return mSpeed;
-    }
-
-    public void setSpeed(float speed) {
-        mSpeed = speed;
-        this.setDuration(this.getDuration());
+    public Shimmer.Builder getBuilder() {
+        return shimmerBuilder;
     }
 
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        if (mSpeed > 0) {
-            int length = 0;
-            switch (this.getAngle()) {
-                case CW_90:
-                case CW_270:
-                    length = bottom - top;
-                    break;
-                case CW_0:
-                case CW_180:
-                default:
-                    length = right - left;
-                    break;
-            }
-            int duration = (int)(1000 * length / mSpeed);
-            if (duration != this.getDuration()) {
-                this.setDuration(duration);
-            }
-        }
+    public void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
     }
 }

@@ -3,10 +3,12 @@ package com.oblador.shimmer;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.shimmer.Shimmer;
 
 public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
     public static final String REACT_CLASS = "RNShimmeringView";
+    private Shimmer.Builder shimmerBuilder = new Shimmer.AlphaHighlightBuilder();
 
     @Override
     public String getName() {
@@ -15,15 +17,12 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
     @Override
     public RNShimmeringView createViewInstance(ThemedReactContext context) {
-        return new RNShimmeringView(context);
+        return new RNShimmeringView(context, shimmerBuilder);
     }
 
     @ReactProp(name = "animating", defaultBoolean = true)
     public void setAnimating(RNShimmeringView view, boolean value) {
-        if (value != view.isAutoStart()) {
-            view.setAutoStart(value);
-            view.invalidate();
-        }
+        shimmerBuilder.setAutoStart(value);
     }
 
     @ReactProp(name = "shimmeringOpacity", defaultFloat = 0.5f)
@@ -35,10 +34,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        if (value != view.getBaseAlpha()) {
-            view.setBaseAlpha(value);
-            view.invalidate();
-        }
+        view.getBuilder().setBaseAlpha(value);
     }
 
     @ReactProp(name = "intensity", defaultFloat = 0.0f)
@@ -50,34 +46,28 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        if (value != view.getIntensity()) {
-            view.setIntensity(value);
-            view.invalidate();
-        }
+        view.getBuilder().setIntensity(value);
     }
 
     @ReactProp(name = "shimmeringDirection")
     public void setAnimating(RNShimmeringView view, String value) {
-        RNShimmeringView.MaskAngle angle = RNShimmeringView.MaskAngle.CW_0;
+        int angle = Shimmer.Direction.LEFT_TO_RIGHT;
         switch (value) {
             case "up":
-                angle = RNShimmeringView.MaskAngle.CW_270;
+                angle = Shimmer.Direction.BOTTOM_TO_TOP;
                 break;
             case "left":
-                angle = RNShimmeringView.MaskAngle.CW_180;
+                angle = Shimmer.Direction.RIGHT_TO_LEFT;
                 break;
             case "down":
-                angle = RNShimmeringView.MaskAngle.CW_90;
+                angle = Shimmer.Direction.TOP_TO_BOTTOM;
                 break;
             case "right":
             default:
                 break;
         }
 
-        if (angle != view.getAngle()) {
-            view.setAngle(angle);
-            view.invalidate();
-        }
+        view.getBuilder().setDirection(angle);
     }
 
     @ReactProp(name = "duration", defaultInt = 1000)
@@ -86,10 +76,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        if (value != view.getDuration()) {
-            view.setDuration(value);
-            view.invalidate();
-        }
+        view.getBuilder().setDuration(value);
+        view.invalidate();
     }
 
     @ReactProp(name = "pauseDuration", defaultInt = 400)
@@ -98,29 +86,15 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        if (value != view.getRepeatDelay()) {
-            view.setRepeatDelay(value);
-            view.invalidate();
-        }
+        view.getBuilder().setRepeatDelay(value);
     }
 
     @ReactProp(name = "tilt", defaultFloat = 0.0f)
     public void setTilt(RNShimmeringView view, int value) {
-        if (value != view.getTilt()) {
-            view.setTilt(value);
-            view.invalidate();
-        }
+        view.getBuilder().setTilt(value);
     }
 
     @ReactProp(name = "speed", defaultInt = 230)
     public void setSpeed(RNShimmeringView view, int value) {
-        if (value < 0) {
-            value = 0;
-        }
-
-        if (value != view.getSpeed()) {
-            view.setSpeed(value);
-            view.invalidate();
-        }
     }
 }
