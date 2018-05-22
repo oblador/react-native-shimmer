@@ -6,14 +6,11 @@ import android.util.AttributeSet;
 import com.facebook.shimmer.Shimmer;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
-
 public class RNShimmeringView extends ShimmerFrameLayout {
-    Shimmer.Builder shimmerBuilder;
+    Shimmer.Builder shimmerBuilder = new Shimmer.AlphaHighlightBuilder();
 
-    public RNShimmeringView(Context context, Shimmer.Builder shimmerBuilder) {
+    public RNShimmeringView(Context context) {
         super(context);
-        this.shimmerBuilder = shimmerBuilder;
-        this.setShimmer(this.shimmerBuilder.build());
     }
 
     public RNShimmeringView(Context context, AttributeSet attrs) {
@@ -26,10 +23,5 @@ public class RNShimmeringView extends ShimmerFrameLayout {
 
     public Shimmer.Builder getBuilder() {
         return shimmerBuilder;
-    }
-
-    @Override
-    public void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
     }
 }

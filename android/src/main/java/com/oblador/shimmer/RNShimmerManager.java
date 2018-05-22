@@ -8,7 +8,6 @@ import com.facebook.shimmer.Shimmer;
 public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
     public static final String REACT_CLASS = "RNShimmeringView";
-    private Shimmer.Builder shimmerBuilder = new Shimmer.AlphaHighlightBuilder();
 
     @Override
     public String getName() {
@@ -17,12 +16,12 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
     @Override
     public RNShimmeringView createViewInstance(ThemedReactContext context) {
-        return new RNShimmeringView(context, shimmerBuilder);
+        return new RNShimmeringView(context);
     }
 
     @ReactProp(name = "animating", defaultBoolean = true)
     public void setAnimating(RNShimmeringView view, boolean value) {
-        shimmerBuilder.setAutoStart(value);
+        view.setShimmer(view.getBuilder().setAutoStart(value).build());
     }
 
     @ReactProp(name = "shimmeringOpacity", defaultFloat = 0.5f)
@@ -34,7 +33,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        view.getBuilder().setBaseAlpha(value);
+        view.setShimmer(view.getBuilder().setBaseAlpha(value).build());
     }
 
     @ReactProp(name = "intensity", defaultFloat = 0.0f)
@@ -46,7 +45,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        view.getBuilder().setIntensity(value);
+        view.setShimmer(view.getBuilder().setIntensity(value).build());
     }
 
     @ReactProp(name = "shimmeringDirection")
@@ -67,7 +66,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
                 break;
         }
 
-        view.getBuilder().setDirection(angle);
+        view.setShimmer(view.getBuilder().setDirection(angle).build());
     }
 
     @ReactProp(name = "duration", defaultInt = 1000)
@@ -76,8 +75,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        view.getBuilder().setDuration(value);
-        view.invalidate();
+        view.setShimmer(view.getBuilder().setDuration(value).build());
     }
 
     @ReactProp(name = "pauseDuration", defaultInt = 400)
@@ -86,12 +84,12 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        view.getBuilder().setRepeatDelay(value);
+        view.setShimmer(view.getBuilder().setRepeatDelay(value).build());
     }
 
     @ReactProp(name = "tilt", defaultFloat = 0.0f)
     public void setTilt(RNShimmeringView view, int value) {
-        view.getBuilder().setTilt(value);
+        view.setShimmer(view.getBuilder().setTilt(value).build());
     }
 
     @ReactProp(name = "speed", defaultInt = 230)
