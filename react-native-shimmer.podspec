@@ -1,5 +1,7 @@
 require 'json'
-version = JSON.parse(File.read('package.json'))["version"]
+package = JSON.parse(File.read('package.json'))
+version = package["version"]
+react_native_version = package["peerDependencies"]['react-native']
 
 Pod::Spec.new do |s|
 
@@ -15,5 +17,6 @@ Pod::Spec.new do |s|
   s.requires_arc    = true
   s.platform        = :ios, "9.0"
 
-  s.dependency 'React'
+  s.dependency 'React', '>= 0.45.1'
+  s.dependency 'Shimmer', '~> 1'
 end

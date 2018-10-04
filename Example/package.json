@@ -3,22 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
     "react": "16.5.0",
     "react-native": "0.57.1",
-    "react-native-shimmer": "*"
+    "react-native-shimmer": "../"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.1.2",
-    "babel-jest": "23.6.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.47.1",
-    "react-test-renderer": "16.5.0"
-  },
-  "jest": {
-    "preset": "react-native"
+    "@babel/core": "^7.0.0-0",
+    "@babel/runtime": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "metro-react-native-babel-preset": "0.47.1"
   }
 }
