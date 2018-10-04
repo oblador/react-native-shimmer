@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source_files    = 'ios/{,Shimmer/FBShimmering/}*.{h,m}'
   s.preserve_paths  = "**/*.js"
   s.requires_arc    = true
-  s.platform        = :ios, "7.0"
+  s.platform        = :ios, "9.0"
 
   s.dependency 'React'
 end
