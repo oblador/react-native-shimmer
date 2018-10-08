@@ -1,7 +1,6 @@
 require 'json'
 package = JSON.parse(File.read('package.json'))
 version = package["version"]
-react_native_version = package["peerDependencies"]['react-native']
 
 Pod::Spec.new do |s|
 

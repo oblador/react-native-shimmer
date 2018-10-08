@@ -8,7 +8,7 @@
   "dependencies": {
     "react": "16.5.0",
     "react-native": "0.57.1",
-    "react-native-shimmer": "../"
+    "react-native-shimmer": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
