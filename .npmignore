@@ -6,13 +6,8 @@
 node_modules
 
 Example
-ios/Shimmer/Examples
-ios/Shimmer/FBShimmering.xcworkspace
-ios/Shimmer/shimmer.gif
-ios/Shimmer/Shimmer.podspec
-ios/Shimmer/CONTRIBUTING.md
 xcuserdata
 
-.gitmodules
 .eslintrc
 yarn.lock
+package-lock.json
