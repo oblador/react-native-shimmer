@@ -8,6 +8,16 @@ Simple shimmering effect in React Native. Based on [Shimmer](https://github.com/
 
 `$ yarn add react-native-shimmer`
 
+_**IOS NOTE**: `react-native-shimmer` relies on Shimmer from Facebook. If not using CocoaPods, you need to add Shimmer to your Xcode project manually. Follow [the instructions](https://github.com/facebook/Shimmer#installation) on their repo and then continue with the following instructions:_
+
+### Option: With [CocoaPods](https://cocoapods.org/)
+
+Add the following to your `Podfile` and run `pod update`:
+
+```
+pod 'react-native-shimmer', :path => 'node_modules/react-native-shimmer'
+```
+
 ### Option: With `react-native link`
 
 `$ react-native link react-native-shimmer`
@@ -20,7 +30,7 @@ Add `ios/RNShimmer.xcodeproj` to **Libraries** and add `libRNShimmer.a` to **Lin
 
 #### Android
 
-* Edit `android/settings.gradle` to look like this (without the +):
+- Edit `android/settings.gradle` to look like this (without the +):
 
 ```diff
 rootProject.name = 'MyApp'
@@ -31,7 +41,7 @@ include ':app'
 + project(':react-native-shimmer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-shimmer/android')
 ```
 
-* Edit `android/app/build.gradle` (note: **app** folder) to look like this: 
+- Edit `android/app/build.gradle` (note: **app** folder) to look like this:
 
 ```diff
 apply plugin: 'com.android.application'
@@ -48,7 +58,7 @@ dependencies {
 }
 ```
 
-* Edit your `MainApplication.java` (deep in `android/app/src/main/java/...`) to look like this (note **two** places to edit):
+- Edit your `MainApplication.java` (deep in `android/app/src/main/java/...`) to look like this (note **two** places to edit):
 
 ```diff
 package com.myapp;
@@ -68,14 +78,6 @@ package com.myapp;
 }
 ```
 
-### Option: With [CocoaPods](https://cocoapods.org/)
-
-Add the following to your `Podfile` and run `pod update`:
-
-```
-pod 'react-native-shimmer', :path => 'node_modules/react-native-shimmer'
-```
-
 ## Usage
 
 NOTE: `Shimmer` may only have one child.
@@ -85,24 +87,24 @@ import Shimmer from 'react-native-shimmer';
 
 <Shimmer>
   <Text>Loading...</Text>
-</Shimmer>
+</Shimmer>;
 ```
 
 ### Properties
 
-| Prop | Description | Default |
-|------|-------------|---------|
-|**`animating`**|Whether or not to show shimmering effect. |`true`|
-|**`direction`**|The direction of shimmering animation, valid values are `up`, `down`, `left`, `right`. |`right`|
-|**`duration`**|The shimmering animation duration in milliseconds.|`1000`|
-|**`pauseDuration`**|The time interval between shimmerings in milliseconds. |`400`|
-|**`animationOpacity`**|The opacity of the content while it is shimmering. |`1`|
-|**`opacity`**|The opacity of the content before it is shimmering. *iOS only*|`0.5`|
-|**`highlightLength`**|The highlight length of shimmering. Range of 0–1. *iOS only*|`1`|
-|**`beginFadeDuration`**|The duration of the fade used when shimmer begins. *iOS only*|`0`|
-|**`endFadeDuration`**|The duration of the fade used when shimmer ends. *iOS only*|`0`|
-|**`tilt`**|The tilt angle of the highlight, in degrees. *Android only*|`0`|
-|**`intensity`**|The intensity of the highlight mask. Range of 0–1. *Android only*|`0`|
+| Prop                    | Description                                                                            | Default |
+| ----------------------- | -------------------------------------------------------------------------------------- | ------- |
+| **`animating`**         | Whether or not to show shimmering effect.                                              | `true`  |
+| **`direction`**         | The direction of shimmering animation, valid values are `up`, `down`, `left`, `right`. | `right` |
+| **`duration`**          | The shimmering animation duration in milliseconds.                                     | `1000`  |
+| **`pauseDuration`**     | The time interval between shimmerings in milliseconds.                                 | `400`   |
+| **`animationOpacity`**  | The opacity of the content while it is shimmering.                                     | `1`     |
+| **`opacity`**           | The opacity of the content before it is shimmering. _iOS only_                         | `0.5`   |
+| **`highlightLength`**   | The highlight length of shimmering. Range of 0–1. _iOS only_                           | `1`     |
+| **`beginFadeDuration`** | The duration of the fade used when shimmer begins. _iOS only_                          | `0`     |
+| **`endFadeDuration`**   | The duration of the fade used when shimmer ends. _iOS only_                            | `0`     |
+| **`tilt`**              | The tilt angle of the highlight, in degrees. _Android only_                            | `0`     |
+| **`intensity`**         | The intensity of the highlight mask. Range of 0–1. _Android only_                      | `0`     |
 
 ## License
 
