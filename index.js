@@ -1,16 +1,9 @@
 import PropTypes from 'prop-types';
-import React, {
-  Component,
-} from 'react';
-
-import {
-  requireNativeComponent,
-  ViewPropTypes,
-} from 'react-native';
+import React, { Component } from 'react';
+import { requireNativeComponent } from 'react-native';
 
 export default class Shimmer extends Component {
   static propTypes = {
-    ...ViewPropTypes,
     animating: PropTypes.bool,
     direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
     duration: PropTypes.number,
