@@ -17,15 +17,6 @@ export default class Shimmer extends Component {
     pauseDuration: PropTypes.number,
     animationOpacity: PropTypes.number,
     opacity: PropTypes.number,
-    speed: (() => {
-      let didWarn = false;
-      return (props, propName, componentName, ...rest) => {
-        if (props[propName] && !didWarn) {
-          didWarn = true;
-          console.warn('Shimmer.speed prop has been deprecated. Please use `duration` instead.');
-        }
-      };
-    })(),
     tilt: PropTypes.number,
     intensity: PropTypes.number,
     highlightLength: PropTypes.number,
