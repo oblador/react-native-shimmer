@@ -6,52 +6,52 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - React (0.57.1):
-    - React/Core (= 0.57.1)
-  - react-native-shimmer (0.3.2):
+  - React (0.57.8):
+    - React/Core (= 0.57.8)
+  - react-native-shimmer (0.4.1):
     - React (>= 0.45.1)
     - Shimmer (~> 1)
-  - React/Core (0.57.1):
-    - yoga (= 0.57.1.React)
-  - React/CxxBridge (0.57.1):
+  - React/Core (0.57.8):
+    - yoga (= 0.57.8.React)
+  - React/CxxBridge (0.57.8):
     - Folly (= 2016.10.31.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.57.1):
+  - React/cxxreact (0.57.8):
     - boost-for-react-native (= 1.63.0)
     - Folly (= 2016.10.31.00)
     - React/jschelpers
     - React/jsinspector
-  - React/DevSupport (0.57.1):
+  - React/DevSupport (0.57.8):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.57.1)
-  - React/jschelpers (0.57.1):
+  - React/fishhook (0.57.8)
+  - React/jschelpers (0.57.8):
     - Folly (= 2016.10.31.00)
     - React/PrivateDatabase
-  - React/jsinspector (0.57.1)
-  - React/PrivateDatabase (0.57.1)
-  - React/RCTActionSheet (0.57.1):
+  - React/jsinspector (0.57.8)
+  - React/PrivateDatabase (0.57.8)
+  - React/RCTActionSheet (0.57.8):
     - React/Core
-  - React/RCTAnimation (0.57.1):
+  - React/RCTAnimation (0.57.8):
     - React/Core
-  - React/RCTBlob (0.57.1):
+  - React/RCTBlob (0.57.8):
     - React/Core
-  - React/RCTImage (0.57.1):
+  - React/RCTImage (0.57.8):
     - React/Core
     - React/RCTNetwork
-  - React/RCTNetwork (0.57.1):
+  - React/RCTNetwork (0.57.8):
     - React/Core
-  - React/RCTSettings (0.57.1):
+  - React/RCTSettings (0.57.8):
     - React/Core
-  - React/RCTText (0.57.1):
+  - React/RCTText (0.57.8):
     - React/Core
-  - React/RCTWebSocket (0.57.1):
+  - React/RCTWebSocket (0.57.8):
     - React/Core
     - React/fishhook
     - React/RCTBlob
   - Shimmer (1.0.2)
-  - yoga (0.57.1.React)
+  - yoga (0.57.8.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -95,10 +95,10 @@ SPEC CHECKSUMS:
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  react-native-shimmer: 037bebac572a59889f59fc70447c5b948da23566
+  react-native-shimmer: 5f0d6556b577e4390e99ee16dd2667a6996f9015
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: d325383b623f56dd24147c217fcb6a59d1981eec
+PODFILE CHECKSUM: e3cf1ead8566a7f97c0be51ea225d4825dc5210b
 
 COCOAPODS: 1.5.3

@@ -1,6 +1,25 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
+post_install do |installer|
+    patch_subspecs(installer)
+end
+
+def patch_subspecs(installer)
+  # patch source and header files
+  # `find node_modules/react-native/React node_modules/react-native/ReactCommon \\( -name *.h -o -name *.m -o -name *.mm \\) -print0 | xargs -0 sed -i '' -E 's:<(yoga|jschelpers|cxxreact)/(.*)>:"\\2":g'`
+
+  # exclude duplicate symbols
+  # https://github.com/facebook/react-native/issues/11502
+  installer.pods_project.targets.each do |target|
+    next unless target.name == 'React'
+
+    source_files = target.source_build_phase.files
+    uniqs = source_files.uniq { |f| f.file_ref.path }
+    (source_files - uniqs).each { |dup| source_files.delete(dup) }
+  end
+end
+
 target 'Example' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
@@ -9,22 +28,22 @@ target 'Example' do
   pod 'react-native-shimmer', :path => '../../react-native-shimmer.podspec'
 
   pod 'React', :path => './../node_modules/react-native', :subspecs => [
-  'Core',
-  'CxxBridge', # Include this for RN >= 0.47
-  'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-  'RCTText',
-  'RCTActionSheet',
-  'RCTNetwork',
-  'RCTWebSocket', # Needed for debugging
-  'RCTAnimation', # Needed for FlatList and animations running on native UI thread
-  'RCTImage',
-  'RCTSettings'
-  # Add any other subspecs you want to use in your project
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTActionSheet',
+    'RCTNetwork',
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
+    'RCTImage',
+    'RCTSettings'
+    # Add any other subspecs you want to use in your project
   ]
-  
+
   # Explicitly include Yoga if you are using RN >= 0.42.0
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-  
+
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
