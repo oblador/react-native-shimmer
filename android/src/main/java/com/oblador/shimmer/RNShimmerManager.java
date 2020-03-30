@@ -26,7 +26,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "opacity", defaultFloat = 0.5f)
+    @ReactProp(name = "shimmeringOpacity", defaultFloat = 0.5f)
     public void setBaseOpacity(RNShimmeringView view, float value) {
         if (value > 1.0f) {
             value = 1.0f;
@@ -52,7 +52,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "direction")
+    @ReactProp(name = "shimmeringDirection")
     public void setDirection(RNShimmeringView view, String value) {
         int direction = Shimmer.Direction.LEFT_TO_RIGHT;
         switch (value) {
