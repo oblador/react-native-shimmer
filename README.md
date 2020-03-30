@@ -6,9 +6,13 @@ Simple shimmering effect in React Native. Based on [Shimmer](https://github.com/
 
 ## Installation
 
-`$ yarn add react-native-shimmer`
+```sh
+yarn add react-native-shimmer
+cd ios && pod install
+```
 
-_**IOS NOTE**: `react-native-shimmer` relies on Shimmer from Facebook. If not using CocoaPods, you need to add Shimmer to your Xcode project manually. Follow [the instructions](https://github.com/facebook/Shimmer#installation) on their repo and then continue with the following instructions:_
+<details>
+  <summary>Installation for React Native <= 0.59</summary>
 
 ### Option: With [CocoaPods](https://cocoapods.org/)
 
@@ -77,6 +81,7 @@ package com.myapp;
 
 }
 ```
+</details>
 
 ## Usage
 
