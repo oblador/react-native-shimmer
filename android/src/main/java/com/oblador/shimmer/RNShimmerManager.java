@@ -1,8 +1,10 @@
 package com.oblador.shimmer;
 
+
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.shimmer.Shimmer;
 
 public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
@@ -20,14 +22,12 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
     @ReactProp(name = "animating", defaultBoolean = true)
     public void setAnimating(RNShimmeringView view, boolean value) {
-        if (value != view.isAutoStart()) {
-            view.setAutoStart(value);
-            view.invalidate();
-        }
+        view.getBuilder().setAutoStart(value);
+        view.updateShimmer();
     }
 
-    @ReactProp(name = "shimmeringOpacity", defaultFloat = 0.5f)
-    public void setShimmeringOpacity(RNShimmeringView view, float value) {
+    @ReactProp(name = "opacity", defaultFloat = 0.5f)
+    public void setBaseOpacity(RNShimmeringView view, float value) {
         if (value > 1.0f) {
             value = 1.0f;
         }
@@ -35,14 +35,12 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        if (value != view.getBaseAlpha()) {
-            view.setBaseAlpha(value);
-            view.invalidate();
-        }
+        view.getBuilder().setBaseAlpha(value);
+        view.updateShimmer();
     }
 
-    @ReactProp(name = "intensity", defaultFloat = 0.0f)
-    public void setAnimationOpacity(RNShimmeringView view, float value) {
+    @ReactProp(name = "animationOpacity", defaultFloat = 1.0f)
+    public void setHighlightOpacity(RNShimmeringView view, float value) {
         if (value > 1.0f) {
             value = 1.0f;
         }
@@ -50,34 +48,30 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        if (value != view.getIntensity()) {
-            view.setIntensity(value);
-            view.invalidate();
-        }
+        view.getBuilder().setHighlightAlpha(value);
+        view.updateShimmer();
     }
 
-    @ReactProp(name = "shimmeringDirection")
-    public void setAnimating(RNShimmeringView view, String value) {
-        RNShimmeringView.MaskAngle angle = RNShimmeringView.MaskAngle.CW_0;
+    @ReactProp(name = "direction")
+    public void setDirection(RNShimmeringView view, String value) {
+        int direction = Shimmer.Direction.LEFT_TO_RIGHT;
         switch (value) {
             case "up":
-                angle = RNShimmeringView.MaskAngle.CW_270;
+                direction = Shimmer.Direction.BOTTOM_TO_TOP;
                 break;
             case "left":
-                angle = RNShimmeringView.MaskAngle.CW_180;
+                direction = Shimmer.Direction.RIGHT_TO_LEFT;
                 break;
             case "down":
-                angle = RNShimmeringView.MaskAngle.CW_90;
+                direction = Shimmer.Direction.TOP_TO_BOTTOM;
                 break;
             case "right":
             default:
                 break;
         }
 
-        if (angle != view.getAngle()) {
-            view.setAngle(angle);
-            view.invalidate();
-        }
+        view.getBuilder().setDirection(direction);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "duration", defaultInt = 1000)
@@ -86,10 +80,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        if (value != view.getDuration()) {
-            view.setDuration(value);
-            view.invalidate();
-        }
+        view.getBuilder().setDuration(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "pauseDuration", defaultInt = 400)
@@ -98,29 +90,26 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        if (value != view.getRepeatDelay()) {
-            view.setRepeatDelay(value);
-            view.invalidate();
-        }
+        view.getBuilder().setRepeatDelay(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "tilt", defaultFloat = 0.0f)
     public void setTilt(RNShimmeringView view, int value) {
-        if (value != view.getTilt()) {
-            view.setTilt(value);
-            view.invalidate();
-        }
+        view.getBuilder().setTilt(value);
+        view.updateShimmer();
     }
 
-    @ReactProp(name = "speed", defaultInt = 230)
-    public void setSpeed(RNShimmeringView view, int value) {
-        if (value < 0) {
-            value = 0;
+    @ReactProp(name = "intensity", defaultFloat = 0.0f)
+    public void setIntensity(RNShimmeringView view, float value) {
+        if (value > 1.0f) {
+            value = 1.0f;
+        }
+        if (value < 0.0f) {
+            value = 0.0f;
         }
 
-        if (value != view.getSpeed()) {
-            view.setSpeed(value);
-            view.invalidate();
-        }
+        view.getBuilder().setIntensity(value);
+        view.updateShimmer();
     }
 }
