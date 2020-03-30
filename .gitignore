@@ -10,6 +10,21 @@ node_modules
 #
 .DS_Store
 
+# Android
+#
+*.iml
+.idea
+!.idea/codeStyleSettings.xml
+.gradle
+.project
+.settings/
+bin/
+gen/
+out/
+captures/
+local.properties
+.classpath
+
 # Xcode
 #
 build/
