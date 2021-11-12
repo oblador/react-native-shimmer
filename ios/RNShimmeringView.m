@@ -23,7 +23,6 @@
 
 - (void)removeReactSubview:(UIView *)subview
 {
-  RCTAssert(self.contentView == subview, @"Attempted to remove non-existent subview");
   self.contentView = nil;
   [subview removeFromSuperview];
 }
