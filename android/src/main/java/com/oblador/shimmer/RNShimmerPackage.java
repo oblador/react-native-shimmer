@@ -30,7 +30,7 @@ public class RNShimmerPackage implements ReactPackage {
     public List<ViewManager> createViewManagers(
             ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new RNShimmerManager()
+                new RNShimmerManager(reactContext)
         );
     }
 }

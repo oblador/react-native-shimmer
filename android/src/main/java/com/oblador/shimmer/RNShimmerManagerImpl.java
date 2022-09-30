@@ -1,33 +1,22 @@
 package com.oblador.shimmer;
 
-
+import androidx.annotation.Nullable;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.ViewGroupManager;
-import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.shimmer.Shimmer;
 
-public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
+public class RNShimmerManagerImpl {
+    public static final String NAME = "RNShimmeringView";
 
-    public static final String REACT_CLASS = "RNShimmeringView";
-
-    @Override
-    public String getName() {
-        return REACT_CLASS;
-    }
-
-    @Override
-    public RNShimmeringView createViewInstance(ThemedReactContext context) {
+    public static RNShimmeringView createViewInstance(ThemedReactContext context) {
         return new RNShimmeringView(context);
     }
 
-    @ReactProp(name = "animating", defaultBoolean = true)
-    public void setAnimating(RNShimmeringView view, boolean value) {
+    public static void setAnimating(RNShimmeringView view, boolean value) {
         view.getBuilder().setAutoStart(value);
         view.updateShimmer();
     }
 
-    @ReactProp(name = "shimmeringOpacity", defaultFloat = 0.5f)
-    public void setBaseOpacity(RNShimmeringView view, float value) {
+    public static void setShimmeringOpacity(RNShimmeringView view, float value) {
         if (value > 1.0f) {
             value = 1.0f;
         }
@@ -39,9 +28,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "animationOpacity", defaultFloat = 1.0f)
-    public void setHighlightOpacity(RNShimmeringView view, float value) {
-        if (value > 1.0f) {
+    public static void setAnimationOpacity(RNShimmeringView view, float value) {
+         if (value > 1.0f) {
             value = 1.0f;
         }
         if (value < 0.0f) {
@@ -52,8 +40,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "shimmeringDirection")
-    public void setDirection(RNShimmeringView view, String value) {
+    public static void setShimmeringDirection(RNShimmeringView view, @Nullable String value) {
         int direction = Shimmer.Direction.LEFT_TO_RIGHT;
         switch (value) {
             case "up":
@@ -74,8 +61,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "duration", defaultInt = 1000)
-    public void setDuration(RNShimmeringView view, int value) {
+    public static void setDuration(RNShimmeringView view, int value) {
         if (value < 0) {
             value = 0;
         }
@@ -84,8 +70,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "pauseDuration", defaultInt = 400)
-    public void setPauseDuration(RNShimmeringView view, int value) {
+    public static void setPauseDuration(RNShimmeringView view, int value) {
         if (value < 0) {
             value = 0;
         }
@@ -94,14 +79,12 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         view.updateShimmer();
     }
 
-    @ReactProp(name = "tilt", defaultFloat = 0.0f)
-    public void setTilt(RNShimmeringView view, int value) {
+    public static void setTilt(RNShimmeringView view, float value) {
         view.getBuilder().setTilt(value);
         view.updateShimmer();
     }
 
-    @ReactProp(name = "intensity", defaultFloat = 0.0f)
-    public void setIntensity(RNShimmeringView view, float value) {
+    public static void setIntensity(RNShimmeringView view, float value) {
         if (value > 1.0f) {
             value = 1.0f;
         }
@@ -111,5 +94,17 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
         view.getBuilder().setIntensity(value);
         view.updateShimmer();
+    }
+
+    public static void setHighlightLength(RNShimmeringView view, float value) {
+        // Do nothing. iOS only property
+    }
+
+    public static void setBeginFadeDuration(RNShimmeringView view, float value) {
+        // Do nothing. iOS only property
+    }
+
+    public static void setEndFadeDuration(RNShimmeringView view, float value) {
+        // Do nothing. iOS only property
     }
 }
