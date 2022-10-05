@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.requires_arc    = true
   s.platform        = :ios, "9.0"
 
-  s.dependency 'React', '>= 0.45.1'
+  s.dependency 'React-Core'
   s.dependency 'Shimmer', '~> 1'
 end
