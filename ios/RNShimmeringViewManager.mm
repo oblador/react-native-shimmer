@@ -42,6 +42,8 @@ RCT_EXPORT_MODULE()
 {
   return [RNShimmeringView new];
 }
+#endif
+
 RCT_REMAP_VIEW_PROPERTY(animating, shimmering, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(shimmeringDirection, FBShimmerDirection)
 RCT_REMAP_VIEW_PROPERTY(duration, shimmeringDuration, CFTimeInterval)
@@ -52,6 +54,5 @@ RCT_REMAP_VIEW_PROPERTY(speed, shimmeringSpeed, CGFloat)
 RCT_REMAP_VIEW_PROPERTY(highlightLength, shimmeringHighlightLength, CGFloat)
 RCT_REMAP_VIEW_PROPERTY(beginFadeDuration, shimmeringBeginFadeDuration, CFTimeInterval)
 RCT_REMAP_VIEW_PROPERTY(endFadeDuration, shimmeringEndFadeDuration, CFTimeInterval)
-#endif
 
 @end
