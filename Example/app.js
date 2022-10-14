@@ -49,7 +49,7 @@ export default function Example(props) {
         <Switch value={animating} onValueChange={setAnimating} />
         <Text style={styles.switchLabel}>Animating</Text>
       </View>
-      <View>
+      <View key={animating ? '1' : '0'}>
         <Shimmer style={styles.loading} duration={1000} animating={animating}>
           <Text style={styles.loadingText}>Loading...</Text>
         </Shimmer>

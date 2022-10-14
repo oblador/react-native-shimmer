@@ -57,9 +57,16 @@ using namespace facebook::react;
   if (index > 0) {
     RCTLogError(@"Shimmer may only contain a single subview");
   } else {
-    [super mountChildComponentView:childComponentView index:index];
+    _view.contentView = childComponentView;
+    [self insertSubview:childComponentView atIndex:index];
+  }
+}
 
-    _view.contentView = [self.subviews objectAtIndex:index];
+- (void)unmountChildComponentView:(UIView<RCTComponentViewProtocol> *)childComponentView index:(NSInteger)index
+{
+  if (index == 0) {
+    _view.contentView = nil;
+    [childComponentView removeFromSuperview];
   }
 }
 
