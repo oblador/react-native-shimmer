@@ -8,6 +8,7 @@
     "src",
     "android",
     "ios",
+    "index.d.ts",
     "react-native-shimmer.podspec",
     "!android/build",
     "!ios/build",
