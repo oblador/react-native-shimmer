@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, Switch } from 'react-native';
+import {Image, StyleSheet, Text, View, Switch} from 'react-native';
 
 import Shimmer from 'react-native-shimmer';
 import logoSource from './react-logo.png';
@@ -53,7 +53,7 @@ export default function Example(props) {
         <Shimmer style={styles.loading} duration={1000} animating={animating}>
           <Text style={styles.loadingText}>Loading...</Text>
         </Shimmer>
-        <Shimmer direction="down" animating={animating}>
+        <Shimmer shimmeringDirection="down" animating={animating}>
           <Image source={logoSource} style={styles.reactLogo} />
         </Shimmer>
       </View>

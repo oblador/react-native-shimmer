@@ -1,18 +1,20 @@
-import * as React from "react";
+import React from 'react';
 import { ViewProps } from "react-native";
 
 export interface ShimmerProps extends ViewProps {
   animating?: boolean;
-  direction?: "up" | "down" | "left" | "right";
+  animationOpacity?: number;
   duration?: number;
   pauseDuration?: number;
-  animationOpacity?: number;
-  opacity?: number;
-  tilt?: number;
-  intensity?: number;
-  highlightLength?: number;
-  beginFadeDuration?: number;
-  endFadeDuration?: number;
+  shimmeringDirection?: "up" | "down" | "left" | "right";
+  shimmeringOpacity?: number;
+
+  highlightLength?: number; // ios only
+  beginFadeDuration?: number; // ios only
+  endFadeDuration?: number; // ios only
+
+  intensity?: number; // android only
+  tilt?: number; // android only
 }
 
 export default class Shimmer extends React.Component<ShimmerProps> {}
