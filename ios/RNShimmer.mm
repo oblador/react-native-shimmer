@@ -41,7 +41,7 @@ using namespace facebook::react;
     _view.shimmeringHighlightLength = CGFloat(defaultProps->highlightLength);
     _view.shimmeringBeginFadeDuration = CFTimeInterval(defaultProps->beginFadeDuration) / 1000;
     _view.shimmeringEndFadeDuration = CFTimeInterval(defaultProps->endFadeDuration) / 1000;
-    [_view setShimmeringDuration:defaultProps->duration/1000]; // set this at the end so that all the dependent props are already set
+    [_view setShimmeringDuration:CFTimeInterval(defaultProps->duration)/1000]; // set this at the end so that all the dependent props are already set
 
     // If a child component is not passed
     [self setDefaultSubview];
@@ -50,6 +50,12 @@ using namespace facebook::react;
   }
 
   return self;
+}
+
+- (void)updateLayoutMetrics:(facebook::react::LayoutMetrics const &)layoutMetrics oldLayoutMetrics:(facebook::react::LayoutMetrics const &)oldLayoutMetrics {
+  [super updateLayoutMetrics:layoutMetrics oldLayoutMetrics:oldLayoutMetrics];
+  
+  [_view tryCorrectSpeedFromDuration];
 }
 
 - (void)mountChildComponentView:(UIView<RCTComponentViewProtocol> *)childComponentView index:(NSInteger)index
@@ -108,7 +114,7 @@ using namespace facebook::react;
   }
 
   if (oldViewProps.duration != newViewProps.duration) {
-    [_view setShimmeringDuration:newViewProps.duration/1000]; // update this at the end
+    [_view setShimmeringDuration:CFTimeInterval(newViewProps.duration)/1000]; // update this at the end
   }
 
   [super updateProps:props oldProps:oldProps];

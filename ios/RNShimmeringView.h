@@ -13,6 +13,7 @@
 #ifdef RCT_NEW_ARCH_ENABLED
 - (CFTimeInterval)getShimmeringDuration;
 - (void)setShimmeringDuration:(CFTimeInterval)shimmeringDuration;
+- (void)tryCorrectSpeedFromDuration;
 #endif
 
 @end
