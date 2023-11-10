@@ -53,7 +53,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
     }
 
     @ReactProp(name = "tilt", defaultFloat = 0.0f)
-    public void setTilt(RNShimmeringView view, int value) {
+    public void setTilt(RNShimmeringView view, float value) {
         RNShimmerManagerImpl.setTilt(view, value);
     }
 
