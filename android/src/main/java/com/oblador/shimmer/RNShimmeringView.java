@@ -14,20 +14,24 @@ public class RNShimmeringView extends ShimmerFrameLayout {
 
     public RNShimmeringView(Context context) {
         super(context);
+        this.setDefaultProps();
     }
 
     public RNShimmeringView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setDefaultProps();
     }
 
     public RNShimmeringView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.setDefaultProps();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public RNShimmeringView(
         Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        this.setDefaultProps();
     }
 
     public Shimmer.Builder getBuilder() {
@@ -36,5 +40,18 @@ public class RNShimmeringView extends ShimmerFrameLayout {
 
     public void updateShimmer() {
         setShimmer(builder.build());
+    }
+
+    public void setDefaultProps() {
+        getBuilder().setAutoStart(true);
+        getBuilder().setBaseAlpha(0.5f);
+        getBuilder().setHighlightAlpha(1);
+        getBuilder().setDirection(Shimmer.Direction.LEFT_TO_RIGHT);
+        getBuilder().setDuration(1000);
+        getBuilder().setRepeatDelay(400);
+        getBuilder().setTilt(0);
+        getBuilder().setIntensity(0);
+
+        updateShimmer();
     }
 }

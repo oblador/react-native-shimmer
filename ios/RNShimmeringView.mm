@@ -1,5 +1,5 @@
 //
-//  RNShimmeringView.m
+//  RNShimmeringView.mm
 //  RNShimmer
 //
 //  Created by Joel Arvidsson on 2016-03-03.
@@ -7,14 +7,18 @@
 //
 
 #import "RNShimmeringView.h"
-#import <React/RCTAssert.h>
 #import "FBShimmeringLayer.h"
+
+#ifndef RCT_NEW_ARCH_ENABLED
+#import <React/RCTAssert.h>
+#endif
 
 @implementation RNShimmeringView
 {
   CFTimeInterval _shimmeringDuration;
 }
 
+#ifndef RCT_NEW_ARCH_ENABLED
 - (void)insertReactSubview:(UIView *)subview atIndex:(NSInteger)atIndex
 {
   RCTAssert(self.contentView == nil, @"RNShimmeringView may only contain a single subview");
@@ -32,6 +36,7 @@
 {
   return self.contentView ? @[self.contentView] : @[];
 }
+#endif
 
 - (void)layoutSubviews
 {
